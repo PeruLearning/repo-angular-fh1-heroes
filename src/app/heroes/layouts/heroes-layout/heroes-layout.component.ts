@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './heroes-layout.component.css'
 })
 export class HeroesLayoutComponent {
-
+  public sidebarItems = [
+    { label: 'Listado', icon: 'label', ulr: './list' },
+    { label: 'Añadir', icon: 'add', ulr: './new-hero' },
+    { label: 'Buscar', icon: 'search', ulr: './search' },
+  ]
 }
