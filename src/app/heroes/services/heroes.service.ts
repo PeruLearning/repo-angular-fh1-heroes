@@ -28,4 +28,23 @@ export class HeroesService {
         map(heroes => heroes.filter(hero => hero.superhero.toLowerCase().includes(query.toLowerCase())))
       );
   }
+
+  public addHero(hero: Hero): Observable<Hero> {
+    return this.http.post<Hero>(`${this.baseUrl}/heroes`, hero);
+  }
+
+  public updateHero(hero: Hero): Observable<Hero> {
+    if (!hero.id) throw Error('Hero id is required');
+
+    return this.http.patch<Hero>(`${this.baseUrl}/heroes/${hero.id}`, hero);
+  }
+
+  public deleteHeroById(id: string): Observable<boolean> {
+
+    return this.http.delete(`${this.baseUrl}/heroes/${id}`)
+      .pipe(
+        catchError(error => of(false)),
+        map(resp => true)
+      );
+  }
 }
