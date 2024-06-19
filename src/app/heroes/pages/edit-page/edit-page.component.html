@@ -1,5 +1,6 @@
 <h1>
-  Agregar héroe
+  Editar héroe |
+  <small>{{heroForm.value.superhero}}</small>
 </h1>
 <mat-divider />
 
@@ -45,9 +46,9 @@
             <button
               type="button"
               mat-raised-button
-              color="accent"
-              (click)="goBack()">
-              Cancelar
+              color="warn"
+              (click)="onDeleteHero()">
+              Borrar
             </button>
 
             <button

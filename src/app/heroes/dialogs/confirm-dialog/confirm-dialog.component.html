@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Borrar héroe</h2>
+<mat-dialog-content>
+  ¿Estás seguro de borrar el héroe '{{data.superhero}}'?
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button
+    mat-button
+    (click)="onNoClick()">
+    No
+  </button>
+  <span class="flex-auto"></span>
+  <button
+    mat-button
+    cdkFocusInitial
+    color="primary"
+    (click)="onConfirmClick()">
+    Sí, borrar
+  </button>
+</mat-dialog-actions>

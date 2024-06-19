@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Hero, Publisher } from '../../interfaces/hero.interface';
 import { HeroesService } from '../../services/heroes.service';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-new-page',
@@ -11,9 +13,8 @@ import { HeroesService } from '../../services/heroes.service';
 export class NewPageComponent {
 
   public heroForm = new FormGroup({
-    id: new FormControl<string>(''),
-    superhero: new FormControl<string>('', { nonNullable: true }),
-    publisher: new FormControl<Publisher>(Publisher.DCComics),
+    superhero: new FormControl<string>('', { nonNullable: true}),
+    publisher: new FormControl<Publisher>(Publisher.DCComics, { nonNullable: true}),
     alter_ego: new FormControl<string>(''),
     first_appearance: new FormControl<string>(''),
     characters: new FormControl<string>(''),
@@ -25,22 +26,22 @@ export class NewPageComponent {
     { id: 'Marvel Comics', desc: 'Marvel-Comics' }
   ]
 
-  constructor(private service: HeroesService){}
+  constructor(
+    private service: HeroesService,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) { }
+
+  public goBack(): void {
+    this.router.navigateByUrl('heroes/list');
+  }
 
   public onSubmit(): void {
     if (this.heroForm.valid) {
-      if (this.heroForm.value.id) {
-        this.service.updateHero(this.currentHero)
-          .subscribe(hero => {
-            // TODO: Mostrar Snackbar
-          });
-
-        return;
-      }
-
       this.service.addHero(this.currentHero)
         .subscribe(hero => {
-          // TODO: Mostrar Snackbar
+          this.snackBar.open(`'${hero.superhero}' creado.`, 'Cerrar', { duration: 2500 });
+          this.router.navigate(['/heroes/edit', hero.id]);
         });
     }
   }
