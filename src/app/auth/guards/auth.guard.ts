@@ -1,26 +1,17 @@
 import {
-  ActivatedRouteSnapshot,
   CanActivateFn,
   CanMatchFn,
-  Route,
   Router,
-  RouterStateSnapshot,
-  UrlSegment
 } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 import { inject } from '@angular/core';
 
-export const authCanActivateGuard: CanActivateFn = (
-  route: ActivatedRouteSnapshot,
-  state: RouterStateSnapshot) => {
+export const authCanActivateGuard: CanActivateFn = (route, state) => {
   return checkAuthStatus();
 }
 
-export const authCanMatchGuard: CanMatchFn = (
-  route: Route,
-  segments: UrlSegment[]
-) => {
+export const authCanMatchGuard: CanMatchFn = (route, segments) => {
   return checkAuthStatus();
 };
 
