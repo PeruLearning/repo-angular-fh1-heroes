@@ -17,12 +17,11 @@ const checkAuthStatus = (): Observable<boolean> => {
 
   return service.checkAuthenticationStatus()
     .pipe(
-      tap((isAuthenticated) => console.log('Authenticated: ', isAuthenticated)),
       tap((isAuthenticated) => {
         if (isAuthenticated) {
           router.navigateByUrl('/');
         }
       }),
-      map(isAuthenticated => !isAuthenticated)
+      map(() => true)
     );
 };
