@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../../auth/services/auth.service';
-import { User } from '../../../auth/interfaces/user.interface';
 import { Router } from '@angular/router';
+
+import { AuthService } from '../../auth/services/auth.service';
+import { User } from '../../auth/interfaces/user.interface';
 
 @Component({
   templateUrl: './heroes-layout.component.html',

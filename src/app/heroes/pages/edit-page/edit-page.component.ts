@@ -51,7 +51,6 @@ export class EditPageComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    debugger;
     if (this.heroForm.valid) {
       this.service.updateHero(this.currentHero)
         .subscribe(hero => {
