@@ -14,8 +14,8 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     SharedModule,
-    HttpClientModule
   ],
   providers: [
     provideAnimationsAsync()
