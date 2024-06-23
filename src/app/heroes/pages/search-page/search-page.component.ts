@@ -5,7 +5,6 @@ import { Hero } from '../../interfaces/hero.interface';
 import { HeroesService } from '../../services/heroes.service';
 
 @Component({
-  selector: 'app-search-page',
   templateUrl: './search-page.component.html',
   styleUrl: './search-page.component.css'
 })

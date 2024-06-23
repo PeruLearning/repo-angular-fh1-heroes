@@ -5,7 +5,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 
 @Component({
-  selector: 'heroes-hero-page',
   templateUrl: './hero-page.component.html',
   styleUrl: './hero-page.component.css'
 })

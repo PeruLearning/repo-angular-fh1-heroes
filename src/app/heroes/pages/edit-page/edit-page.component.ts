@@ -10,7 +10,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../../dialogs/confirm-dialog/confirm-dialog.component';
 
 @Component({
-  selector: 'app-edit-page',
   templateUrl: './edit-page.component.html',
   styles: ``
 })
