@@ -7,13 +7,13 @@ import { publicCanActivateGuard, publicCanMatchGuard } from './auth/guards/publi
 const routes: Routes = [
   {
     path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then(c => c.AuthModule),
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
     canActivate: [publicCanActivateGuard],
     canMatch: [publicCanMatchGuard]
   },
   {
     path: 'heroes',
-    loadChildren: () => import('./heroes/heroes.module').then(c => c.HeroesModule),
+    loadChildren: () => import('./heroes/heroes.module').then(m => m.HeroesModule),
     canActivate: [authCanActivateGuard],
     canMatch: [authCanMatchGuard]
   },

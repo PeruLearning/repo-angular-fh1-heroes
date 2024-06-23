@@ -18,17 +18,21 @@ import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.
 
 @NgModule({
   declarations: [
-    HeroPageComponent,
+    HeroCardComponent,
+
+    // Layout
     HeroesLayoutComponent,
+
+    // Pages
     ListPageComponent,
     NewPageComponent,
     SearchPageComponent,
-    HeroCardComponent,
+    HeroPageComponent,
 
     // Pipes
     HeroImagePipe,
-      EditPageComponent,
-      ConfirmDialogComponent
+    EditPageComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     CommonModule,
