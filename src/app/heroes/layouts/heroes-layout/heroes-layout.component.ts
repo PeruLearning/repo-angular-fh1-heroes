@@ -4,7 +4,6 @@ import { User } from '../../../auth/interfaces/user.interface';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-heroes-layout',
   templateUrl: './heroes-layout.component.html',
   styleUrl: './heroes-layout.component.css'
 })
