@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, catchError, map, of, tap } from 'rxjs';
+
 import { environment } from '../../../environments/environment';
 import { User } from '../interfaces/user.interface';
-import { Observable, catchError, map, of, tap } from 'rxjs';
 import { MenuItem } from '../../heroes/interfaces/menu-item.interface';
 
 @Injectable({
@@ -22,9 +23,9 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   public getMenuItems(): Observable<MenuItem[]> {
-    return new Observable<MenuItem[]>((subscritor) => {
-      subscritor.next(this.menuItems);
-      subscritor.complete();
+    return new Observable<MenuItem[]>((subscriber) => {
+      subscriber.next(this.menuItems);
+      subscriber.complete();
     });
   }
 
