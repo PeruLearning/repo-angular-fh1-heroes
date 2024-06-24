@@ -1,28 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../../auth/services/auth.service';
 import { User } from '../../../auth/interfaces/user.interface';
+import { MenuItem } from '../../interfaces/menu-item.interface';
 
 @Component({
   templateUrl: './heroes-layout.component.html',
   styleUrl: './heroes-layout.component.css'
 })
-export class HeroesLayoutComponent {
+export class HeroesLayoutComponent implements OnInit {
 
-  public sidebarItems = [
-    { label: 'Listado', icon: 'label', ulr: './list' },
-    { label: 'Añadir', icon: 'add', ulr: './new-hero' },
-    { label: 'Buscar', icon: 'search', ulr: './search' },
-  ]
+  public _menuItems: MenuItem[] = []
 
   constructor(
     private service: AuthService,
     private router: Router
   ) { }
 
+  public ngOnInit(): void {
+    this.service.getMenuItems().subscribe((items) => {
+      this._menuItems = items;
+    })
+  }
+
   public get currentUser(): User | undefined {
     return this.service.currentUser;
+  }
+
+  public get menuItems(): MenuItem[] {
+    return [... this._menuItems];
   }
 
   public onLogout(): void {
