@@ -11,7 +11,7 @@ import { MenuItem } from '../../interfaces/menu-item.interface';
 })
 export class HeroesLayoutComponent implements OnInit {
 
-  public _menuItems: MenuItem[] = []
+  private _menuItems: MenuItem[] = []
 
   constructor(
     private service: AuthService,
