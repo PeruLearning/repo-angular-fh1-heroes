@@ -29,7 +29,7 @@ export class HeroesLayoutComponent implements OnInit {
   }
 
   public get menuItems(): MenuItem[] {
-    return structuredClone(this._menuItems);
+    return [...this._menuItems];
   }
 
   public onLogout(): void {
